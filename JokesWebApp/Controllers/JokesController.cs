@@ -23,6 +23,7 @@ namespace JokesWebApp.Controllers
         // GET: Jokes
         public async Task<IActionResult> Index()
         {
+            var data = _context.Joke.FromSqlRaw("ShowAllJokes").ToList();
             return View(await _context.Joke.ToListAsync());
         }
 
